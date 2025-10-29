@@ -1,0 +1,33 @@
+<template id="RT-ITEMLINE">
+    <style>
+        #container {
+            display: grid;
+            grid-template-columns: 70px 60px auto;
+            column-gap: 5px;
+            padding: 5px;
+        }
+
+        span {
+            align-self: center;
+        }
+
+        span#prijs {
+            text-align: right;
+        }
+
+        span#count {
+            flex-basis: 100%;
+            text-align: center;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+    </style>
+    <div id="container">
+        <rt-plusminus></rt-plusminus>
+        <span id="prijs"></span>
+        <span>
+            <slot></slot>
+        </span>
+    </div>
+</template>

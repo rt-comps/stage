@@ -1,0 +1,38 @@
+<template id="RT-MENUITEM">
+    <style>
+        div {
+            display: flex;
+        }
+
+        #menu-item-container {
+            /* max-width: 300px;
+            min-width: 300px; */
+            align-items: center;
+            background: var(--MENU-ITEM-BACKGROUND, burlywood);
+            color: var(--MENU-ITEM-COLOR, black);
+            padding: var(--MENU-ITEM-PADDING, 10px);
+            border-radius: var(--MENU-ITEM-BORDER-RADIUS, 10px);
+        }
+
+        #menu-item-img {
+            display: block;
+            width: 100px;
+            height: 75px;
+            border-radius: 15px;
+            background-color: green;
+            background-size: 100px;
+        }
+
+        #menu-item-text {
+            padding: 5px;
+            flex-basis: 200px;
+            flex-wrap: wrap;
+        }
+    </style>
+    <div id="menu-item-container">
+        <div id="menu-item-img"></div>
+        <div id="menu-item-text">
+            <slot>Geen beschrijving</slot>
+        </div>
+    </div>
+</template>

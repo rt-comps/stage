@@ -1,0 +1,54 @@
+<template id="RT-APPELTAART-DIA">
+    <style>
+        /* Set component defaults */
+        :host {
+            --FORM-FONTS: "Segoe UI", "Candara", "Bitstream Vera Sans", "DejaVu Sans", "Bitstream Vera Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans-serif;
+            --FONT-SIZE: 16px;
+            --ITEM-DETAILS-BACKGROUND: burlywood;
+            --ITEM-DETAILS-COLOR: black;
+            --ITEM-DETAILS-PADDING: 10px;
+            --ITEM-DETAILS-BORDER-RADIUS: 10px;
+            --ORDER-CLOSE-BUTTON-BACKGROUND: white;
+        }
+
+        /* Set up dialog */
+        #container {
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+            visibility: hidden;
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+
+        dialog {
+            padding: 25px 25px 5px 5px;
+            border-radius: 10px;
+        }
+
+        dialog::backdrop {
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+
+        #x {
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            height: 25px;
+        }
+
+        #x img {
+            width: 25px;
+        }
+    </style>
+    <!-- <div id="container"> -->
+    <dialog>
+        <div id="x"><img src=""></div>
+    </dialog>
+    <!-- </div> -->
+</template>

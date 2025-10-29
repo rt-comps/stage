@@ -1,0 +1,72 @@
+<template id="RT-DATEPICKER">
+    <!-- Style Definition -->
+    <style>
+        div,
+        dp-date,
+        dp-arrow {
+            display: flex;
+            flex-flow: row;
+            justify-content: center;
+            align-items: stretch;
+            box-sizing: border-box;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        dp-date {
+            flex: 1 0 auto;
+        }
+
+        dp-arrow {
+            flex: none;
+        }
+
+        fieldset {
+            border:none;
+            width:fit-content;
+        }
+        .arrowbox {
+            justify-content: center;
+            align-items: center;
+            padding: 0 5px 0 5px;
+            font-size: 50%;
+        }
+
+        .disabled {
+            color: #CCCCCC;
+        }
+
+        #al {
+            border-right: 1px solid black;
+            padding-right: 4px;
+        }
+
+        #container {
+            display: grid;
+            grid-template-columns: 5% 1fr 1fr 1fr 1fr 1fr 1fr 1fr 5%;
+            font-family: Candara, Calibri, Segoe, Segoe UI, Optima, Arial, sans-serif;
+            font-size: 2em;
+            border: 1px solid black;
+            border-radius: 5px;
+            background-color: white;
+            width: 280px;
+        }
+    </style>
+
+    <!-- Layout Definition -->
+    <fieldset>
+        <legend>Kies een dag</legend>
+        <div id="container" tabindex="0 ">
+            <div id="al" class="arrowbox">&lt;</div>
+            <dp-date day="0"></dp-date>
+            <dp-date day="1"></dp-date>
+            <dp-date day="2"></dp-date>
+            <dp-date day="3"></dp-date>
+            <dp-date day="4"></dp-date>
+            <dp-date day="5"></dp-date>
+            <dp-date day="6"></dp-date>
+            <div id="ar" class="arrowbox">&gt;</div>
+        </div>
+    </fieldset>
+</template>

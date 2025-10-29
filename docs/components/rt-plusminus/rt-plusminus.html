@@ -1,0 +1,38 @@
+<template id="RT-PLUSMINUS">
+    <style>
+        div {
+            --MAX-COUNT: var(--rt-plusminus-MAX-COUNT, 10);
+            display: flex;
+            align-items: center;
+            width: 100%;
+            padding: 3px;
+            border-radius: 3px;
+        }
+
+        /* Button style */
+        span {
+            flex: 0 0 16px;
+            padding: 0px 2px 0px 2px;
+            margin: 1px;
+            height: 20px;
+            line-height: 20px;
+            /* border: 1px solid black; */
+            /* border-radius: 5px; */
+            color: black;
+            /* background-color: white; */
+            text-align: center;
+        }
+
+        #plus,
+        #minus {
+            border: 1px solid black;
+            border-radius: 5px;
+            background-color: white;
+        }
+    </style>
+    <div id="container">
+        <span id="plus">+</span>
+        <span id="count">0</span>
+        <span id="minus">-</span>
+    </div>
+</template>

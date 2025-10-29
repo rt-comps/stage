@@ -1,0 +1,28 @@
+<template id="RT-ITEMVARIETY">
+    <style>
+        hr {
+            border-color: var(--ITEM-DETAILS-COLOR, black);
+        }
+
+        #container {
+            margin: 10px;
+        }
+
+        #text {
+            font-weight: bold;
+            text-transform: capitalize;
+        }
+
+        #caret {
+            padding-right: 5px;
+        }
+    </style>
+
+    <div id="container">
+        <div id="title"><span id="caret"></span><span id="text"></span></div>
+        <hr />
+        <div id="lines" hidden>
+            <slot></slot>
+        </div>
+    </div>
+</template>

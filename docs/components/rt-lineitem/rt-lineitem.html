@@ -1,0 +1,38 @@
+<template id="RT-LINEITEM">
+    <style>
+        hr {
+            width: 100%;
+        }
+
+        #container {
+            display: grid;
+            grid-template-columns: 70px auto 70px 30px;
+            column-gap: 0.75em;
+        }
+
+        #count {
+            flex-basis: 100%;
+            text-align: center;
+        }
+
+        #desc {
+            font-size: 0.83em;
+        }
+
+        #total {
+            text-align: right;
+        }
+    </style>
+
+    <div id="container">
+        <rt-plusminus></rt-plusminus>
+        <span id="unit" hidden></span>
+        <span id="desc">
+            <slot></slot>
+        </span>
+        <span id="total"></span>
+        <!-- Placeholder for delete icon -->
+        <span id="delete"><img width="25px" /></span>
+    </div>
+    <hr />
+</template>

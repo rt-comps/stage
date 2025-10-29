@@ -1,0 +1,30 @@
+<template id="RT-PICKUPLOCATIONS">
+    <style>
+        fieldset {
+            border: none;
+            /* border: 1px black dashed; */
+            width: fit-content;
+        }
+
+        label {
+            display: flex;
+        }
+
+        div:focus{
+            width: fit-content;
+            /* border: 1px blue solid; */
+        }
+    </style>
+    <div id="container">
+        <div id="fs-pickup" tabindex="0">
+            <fieldset id="pickup">
+                <legend>Oppakken van...</legend>
+            </fieldset>
+        </div>
+        <div id="fs-time" tabindex="1" hidden>
+            <fieldset id="pu-times">
+                <legend>Kies een tijd</legend>
+            </fieldset>
+        </div>
+    </div>
+</template>

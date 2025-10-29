@@ -1,0 +1,29 @@
+<template id="RT-ITEMDATA">
+    <style>
+        div#title {
+            font-weight: bold;
+            font-size: large;
+            text-transform: capitalize;
+            padding: 5px;
+        }
+
+        div#desc {
+            padding: 5px;
+        }
+
+        div#varieties {
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+
+    <div id="title">
+        <slot name="title"></slot>
+    </div>
+    <div id="desc">
+        <slot name="desc"></slot>
+    </div>
+    <div id="varieties">
+        <slot></slot>
+    </div>
+</template>
