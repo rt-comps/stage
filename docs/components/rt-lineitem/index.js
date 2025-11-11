@@ -1,6 +1,5 @@
 const options = {
-  dependencies: [
-    'rt-plusminus'
-  ]
-}
+    dependencies: [ "rt-plusminus" ]
+};
+
 rtlib.init(import.meta.url, options);

@@ -1,13 +1,6 @@
-<!-- 
-        Use display: none to hide text until formatting has loaded
-         Is there a better way to stop the browser parsing the innerHTML?
-    -->
-<!--    <rt-orderform style="display: none;" form-width="1100px">-->
-<!-- 
-    Optional parameters
-    form-width : Set form width
-    cart-width : Set minimum width of shopping cart
- -->
+
+
+
 <style>
     :host {
         /*
@@ -45,7 +38,7 @@
         }
     </style>
 </form-config>
-<!-- Menu data starts here -->
+
 <rt-itemdata id="veganistisch">
     <item-title>Veganistische appeltaart</item-title>
     <item-desc>Veganistische appeltaart, net zo lekker als onze traditionele appeltaart, maar dan geheel
@@ -134,8 +127,8 @@
     <rt-itemvariety value="mini kruimeltaartje" default>
     </rt-itemvariety>
 </rt-itemdata>
-<!-- Checkout form starts here -->
-<!-- Checkout form starts here -->
+
+
 <div id="user-details" slot="user-form">
     <style>
         #user-details {
@@ -222,18 +215,18 @@
                 <time-slot>12:00 - 14:00</time-slot>
                 <time-slot>14:00 - 16:00</time-slot>
             </pu-loc>
-            <pu-dates maxweek="4" invalid="0,6" locale="nl-NL" />
+            <pu-dates maxweek="4" invalid="0,6" locale="nl-NL">
         </rt-pickuplocations>
     </h5>
     <h2>Uw Gegevens</h2>
     <label>Save Details <input id="savefields" type="checkbox"></label>
     <div id="formfields">
-        <hr />
+        <hr>
         <div class="flow-row">
             <rt-form-field name="bedrijfsnaam" label="Bedrijfsnaam"></rt-form-field>
             <rt-form-field name="kostplaat" label="Kostenplaats"></rt-form-field>
         </div>
-        <hr />
+        <hr>
         <div class="flow-col">
             <rt-form-field name="voornaam" label="Voornaam" required></rt-form-field>
             <rt-form-field name="achtnaam" label="Achternaam" required></rt-form-field>
@@ -243,7 +236,7 @@
             <rt-form-field name="postcode" label="Postcode" type="post" required></rt-form-field>
             <rt-form-field name="woon" label="Woonplaats" required></rt-form-field>
         </div>
-        <hr />
+        <hr>
         <label>Opmerken<textarea name="opmerk" rows="5"></textarea></label>
     </div>
 </div>
