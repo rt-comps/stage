@@ -1,58 +1,6 @@
 <template id="RT-DATEPICKER">
     
-    <style>
-        div,
-        dp-date,
-        dp-arrow {
-            display: flex;
-            flex-flow: row;
-            justify-content: center;
-            align-items: stretch;
-            box-sizing: border-box;
-            -webkit-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-
-        dp-date {
-            flex: 1 0 auto;
-        }
-
-        dp-arrow {
-            flex: none;
-        }
-
-        fieldset {
-            border:none;
-            width:fit-content;
-        }
-        .arrowbox {
-            justify-content: center;
-            align-items: center;
-            padding: 0 5px 0 5px;
-            font-size: 50%;
-        }
-
-        .disabled {
-            color: #CCCCCC;
-        }
-
-        #al {
-            border-right: 1px solid black;
-            padding-right: 4px;
-        }
-
-        #container {
-            display: grid;
-            grid-template-columns: 5% 1fr 1fr 1fr 1fr 1fr 1fr 1fr 5%;
-            font-family: Candara, Calibri, Segoe, Segoe UI, Optima, Arial, sans-serif;
-            font-size: 2em;
-            border: 1px solid black;
-            border-radius: 5px;
-            background-color: white;
-            width: 280px;
-        }
-    </style>
+    <style>div,dp-arrow,dp-date{display:flex;flex-flow:row;justify-content:center;align-items:stretch;box-sizing:border-box;-webkit-user-select:none;-ms-user-select:none;user-select:none}dp-date{flex:1 0 auto}dp-arrow{flex:none}fieldset{border:none;width:fit-content}.arrowbox{justify-content:center;align-items:center;padding:0 5px 0 5px;font-size:50%}.disabled{color:#ccc}#al{border-right:1px solid #000;padding-right:4px}#container{display:grid;grid-template-columns:5% 1fr 1fr 1fr 1fr 1fr 1fr 1fr 5%;font-family:Candara,Calibri,Segoe,Segoe UI,Optima,Arial,sans-serif;font-size:2em;border:1px solid #000;border-radius:5px;background-color:#fff;width:280px}</style>
 
     
     <fieldset>
