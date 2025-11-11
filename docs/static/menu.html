@@ -1,12 +1,42 @@
 
 
 
-<style>:host{--rt-orderform-DETAILS-BACKGROUND:cornflowerblue;--rt-orderform-CART-WIDTH:350px;--rt-plusminus-MAX-COUNT:5}rt-orderform{width:100%}</style>
-<form-config style="display:none">
+<style>
+    :host {
+        /*
+        Define CSS variables here to over-ride form defaults, eg
+        
+        
+        --rt-orderform-DETAILS-BACKGROUND: cornflowerblue; 
+        */
+        --rt-orderform-DETAILS-BACKGROUND: cornflowerblue;
+        --rt-orderform-CART-WIDTH: 350px;
+        --rt-plusminus-MAX-COUNT: 5;
+    }
+
+    rt-orderform {
+        width: 100%;
+    }
+</style>
+<form-config style="display: none">
     <span id="imgpath">https://appeltaartimperium.nl/wp-content/themes/yootheme/cache/</span>
-    <style id="rt-lineitem">rt-plusminus{--OF-PM-POS:left}</style>
-    <style id="rt-itemline">rt-plusminus{--rt-plusminus-MAX-COUNT:7;--OF-PM-POS:right}</style>
-    <style id="rt-orderform">rt-orderform{--OF-DETAILS-BACKGROUND:green}</style>
+    <style id="rt-lineitem">
+        rt-plusminus {
+            --OF-PM-POS: left;
+        }
+    </style>
+    <style id="rt-itemline">
+        rt-plusminus {
+            --rt-plusminus-MAX-COUNT: 7;
+            --OF-PM-POS: right;
+        }
+    </style>
+    <style id="rt-orderform">
+        rt-orderform {
+            --OF-DETAILS-BACKGROUND: green;
+            /* --OF-HIDE-UPDATE: 'true'; */
+        }
+    </style>
 </form-config>
 
 <rt-itemdata id="veganistisch">
@@ -100,7 +130,80 @@
 
 
 <div id="user-details" slot="user-form">
-    <style>#user-details{flex-direction:column;align-items:stretch}#formfields{display:flex;flex-direction:column;align-items:flex-start}#bedrijf{width:100%;flex-flow:row;justify-content:space-around}.flow-row{flex:1 1 auto;flex-flow:row;justify-content:space-around}.flow-col{display:flex;flex-direction:column;flex:1 1 auto;align-items:flex-end;padding-top:20px;padding-bottom:20px}div#formfields hr{width:100%}#persoon{display:flex;flex-direction:column;flex:1 1 auto;align-items:flex-end;padding-top:20px;padding-bottom:20px}rt-form-field{margin-top:5px;margin-bottom:5px;margin-right:10px}label{width:100%}textarea{width:100%;font-size:medium;resize:none}@media only screen and (max-width:430px){.flow-row{display:flex;flex-direction:column;flex:1 1 auto;align-items:flex-end;padding-top:20px;padding-bottom:20px}}</style>
+    <style>
+        #user-details {
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        #formfields {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        #bedrijf {
+            width: 100%;
+            flex-flow: row;
+            justify-content: space-around;
+        }
+
+        .flow-row {
+            flex: 1 1 auto;
+            flex-flow: row;
+            justify-content: space-around;
+        }
+
+        .flow-col {
+            display: flex;
+            flex-direction: column;
+            flex: 1 1 auto;
+            align-items: flex-end;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+
+        div#formfields hr {
+            width: 100%;
+        }
+
+        #persoon {
+            display: flex;
+            flex-direction: column;
+            flex: 1 1 auto;
+            align-items: flex-end;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+
+        rt-form-field {
+            margin-top: 5px;
+            margin-bottom: 5px;
+            margin-right: 10px;
+        }
+
+        label {
+            width: 100%;
+        }
+
+        textarea {
+            width: 100%;
+            font-size: medium;
+            resize: none;
+        }
+
+        /* For small screens convert rows of fields to columns to try and avoid width overflow */
+        @media only screen and (max-width: 430px) {
+            .flow-row {
+                display: flex;
+                flex-direction: column;
+                flex: 1 1 auto;
+                align-items: flex-end;
+                padding-top: 20px;
+                padding-bottom: 20px;
+            }
+        }
+    </style>
     <h2>Oppakken</h2>
     <h5>
         <rt-pickuplocations name="pu-loc">

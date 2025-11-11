@@ -1,10 +1,307 @@
 <template id="RT-ORDERFORM">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
-    <style>:host{--FONTS-DEFAULT:"Segoe UI",Candara,"Bitstream Vera Sans","DejaVu Sans","Bitstream Vera Sans","Trebuchet MS",Verdana,"Verdana Ref",sans-serif;--FONT-SIZE-DEFAULT:16px;--LINE-HEIGHT-DEFAULT:1.5;--WIDTH-DEFAULT:100%;--COLOR-DEFAULT:black;--BACKGROUND-DEFAULT:burlywood;--BORDER-DEFAULT:1px solid black;--BORDER-RADIUS-DEFAULT:10px;--PADDING-DEFAULT:10px;--CART-MIN-SIZE-DEFAULT:1fr;font-family:var(--rt-orderform-FONTS, var(--FONTS-DEFAULT));font-size:var(--rt-orderform-FONT-SIZE, var(--FONT-SIZE-DEFAULT));line-height:var(--rt-orderform-LINE-HEIGHT, var(--LINE-HEIGHT-DEFAULT));--CART-MIN-SIZE:minmax(var(--rt-orderform-CART-WIDTH, 0px), var(--CART-MIN-SIZE-DEFAULT));-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}date-picker{flex:0 0 500px}div,form{display:flex;justify-content:center;align-items:center;flex-flow:row wrap;box-sizing:border-box;border-radius:var(--rt-orderform-BORDER-RADIUS,var(--BORDER-RADIUS-DEFAULT))}h2,h5{margin-block-start:0}hr{width:100%}dialog{margin:auto;user-select:none}.button{min-width:min(200px,calc(95%/2));padding:10px;background-color:grey;color:#fff}.button-dis{color:#a0a0a0}.button-hide{display:none}#rt-orderform-container{display:grid;grid-template-columns:2fr var(--CART-MIN-SIZE);align-items:flex-start;min-height:fit-content;width:var(--rt-orderform-WIDTH,var(--WIDTH-DEFAULT));padding:5px}#menu-items-container{position:relative;justify-content:space-around;align-items:baseline;margin-right:3px;border:1px solid #000}#menu{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));grid-gap:20px;padding:20px;width:100%}#product-details{background:var(--OF-DETAILS-BACKGROUND,var(--BACKGROUND-DEFAULT));color:var(--rt-orderform-DETAILS-COLOR,var(--COLOR-DEFAULT));border:var(--rt-orderform-DETAILS-BORDER,var(--BORDER-DEFAULT));border-radius:var(--rt-orderform-DETAILS-RADIUS,var(--BORDER-RADIUS-DEFAULT));padding:var(--ORDER_FORM-DETAILS-PADDING,var(--PADDING-DEFAULT));outline:0;overflow-x:hidden;overflow-y:auto;min-width:60%;max-width:60%}#product-details-close{position:absolute;top:-3px;right:-3px;background:var(--ORDER-CLOSE-BUTTON-BACKGROUND,#fff)}#product-details-close img{margin:-4px;width:50px}#product-details::backdrop{background-color:rgba(0,0,0,.2)}#form-container{background:var(--ORDER-CLOSE-BUTTON-BACKGROUND,#fff);justify-content:center;align-items:stretch}#user-form{top:0;left:0;right:0;flex-flow:column;flex:0 0 100%;align-items:stretch;justify-content:flex-start;padding:10px}#form-buttons{flex:0 0 80%;justify-content:space-around;padding:5px}.pick-container{flex-flow:row;justify-content:flex-start}#cart{flex-direction:column;overflow:hidden;padding:5px;border:1px solid #000}#cart-title{font-size:2em;background-color:#e0e0e0;padding:.1em;width:100%}#cart-contents{flex-direction:column;align-items:stretch;width:100%;overflow:hidden}#cart-contents-inner{width:100%;flex-direction:column;align-items:stretch}#cart-total{width:100%;padding:5px}.order-total{font-size:1.5em}#order-total-label{flex-basis:100px;justify-content:flex-start}#order-total-amount{flex-grow:1;justify-content:flex-end}#order-buts{background-color:#e0e0e0;width:100%;min-height:20px;padding:5px}@media only screen and (max-width:430px){.mobile{display:none}#rt-orderform-container{width:100%;grid-template-columns:1fr;margin:0;padding:0}#menu-items-container{border:0;margin:0}#product-details{max-width:90%}#mobile-spacer{width:200px;height:75px}#cart{display:grid;grid-template-columns:1fr;grid-template-rows:min-content min-content auto min-content min-content min-content;position:fixed;height:95%;bottom:2.5%;width:95%;left:2.5%;background-color:#fff;transition:height .4s ease}#cart.mini{height:var(--MINIMIZED-CART,20px);bottom:0}#cart.init{visibility:hidden}#cart-contents{flex-direction:row;align-self:end;height:100%;overflow-y:auto;overflow-x:hidden}#cart-contents-inner{justify-content:flex-end}}</style>
+    <style>
+        /* === Element Defaults === */
+
+        :host {
+            /* Set some style variable defaults for order form */
+            --FONTS-DEFAULT: "Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans", "Bitstream Vera Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans-serif;
+            --FONT-SIZE-DEFAULT: 16px;
+            --LINE-HEIGHT-DEFAULT: 1.5;
+            --WIDTH-DEFAULT: 100%;
+            --COLOR-DEFAULT: black;
+            --BACKGROUND-DEFAULT: burlywood;
+            --BORDER-DEFAULT: 1px solid black;
+            --BORDER-RADIUS-DEFAULT: 10px;
+            --PADDING-DEFAULT: 10px;
+            --CART-MIN-SIZE-DEFAULT: 1fr;
+
+            /* Apply user specified values or defaults */
+            font-family: var(--rt-orderform-FONTS, var(--FONTS-DEFAULT));
+            font-size: var(--rt-orderform-FONT-SIZE, var(--FONT-SIZE-DEFAULT));
+            line-height: var(--rt-orderform-LINE-HEIGHT, var(--LINE-HEIGHT-DEFAULT));
+
+            --CART-MIN-SIZE: minmax(var(--rt-orderform-CART-WIDTH, 0px), var(--CART-MIN-SIZE-DEFAULT));
+
+            /* Turn off selection/highlighting of text */
+            /* iOS Safari */
+            -webkit-touch-callout: none;
+            /* Safari */
+            -webkit-user-select: none;
+            /* Konqueror HTML */
+            -khtml-user-select: none;
+            /* Old versions of Firefox */
+            -moz-user-select: none;
+            /* Internet Explorer/Edge */
+            -ms-user-select: none;
+            /* Non-prefixed version, currently supported by Chromium(-based) and Firefox */
+            user-select: none;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings:
+                'FILL' 0,
+                'wght' 400,
+                'GRAD' 0,
+                'opsz' 24
+        }
+
+        date-picker {
+            flex: 0 0 500px;
+        }
+
+        div,
+        form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-flow: row wrap;
+            box-sizing: border-box;
+            border-radius: var(--rt-orderform-BORDER-RADIUS, var(--BORDER-RADIUS-DEFAULT));
+        }
+
+        h2,
+        h5 {
+            margin-block-start: 0;
+        }
+
+        hr {
+            width: 100%;
+        }
+
+        dialog {
+            margin: auto;
+            user-select: none;
+        }
+
+        /* Define basic button appearance */
+        .button {
+            min-width: min(200px, calc(95%/2));
+            padding: 10px;
+            background-color: rgb(128, 128, 128);
+            color: white;
+        }
+
+        /* Define disabled button appearance */
+        .button-dis {
+            color: rgb(160, 160, 160);
+        }
+
+        /* Hide the button */
+        .button-hide {
+            display: none;
+        }
+
+        /* Overal container */
+        #rt-orderform-container {
+            display: grid;
+            grid-template-columns: 2fr var(--CART-MIN-SIZE);
+            align-items: flex-start;
+            min-height: fit-content;
+            width: var(--rt-orderform-WIDTH, var(--WIDTH-DEFAULT));
+            padding: 5px;
+        }
+
+        /* Container for Menu and Form Overlay */
+        #menu-items-container {
+            position: relative;
+            justify-content: space-around;
+            align-items: baseline;
+            margin-right: 3px;
+            border: 1px solid black;
+        }
+
+        /* The Menu Container */
+        #menu {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-gap: 20px;
+            padding: 20px;
+            width: 100%;
+        }
+
+        /* Product Details Overlay */
+        #product-details {
+            background: var(--OF-DETAILS-BACKGROUND, var(--BACKGROUND-DEFAULT));
+            color: var(--rt-orderform-DETAILS-COLOR, var(--COLOR-DEFAULT));
+            border: var(--rt-orderform-DETAILS-BORDER, var(--BORDER-DEFAULT));
+            border-radius: var(--rt-orderform-DETAILS-RADIUS, var(--BORDER-RADIUS-DEFAULT));
+            padding: var(--ORDER_FORM-DETAILS-PADDING, var(--PADDING-DEFAULT));
+            outline: none;
+            overflow-x: hidden;
+            overflow-y: auto;
+            min-width: 60%;
+            max-width: 60%;
+        }
+
+        /* Product details overlay close button */
+        #product-details-close {
+            position: absolute;
+            top: -3px;
+            right: -3px;
+            background: var(--ORDER-CLOSE-BUTTON-BACKGROUND, white);
+        }
+
+        #product-details-close img {
+            margin: -4px;
+            width: 50px;
+        }
+
+        #product-details::backdrop {
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+
+        /* User Details Overlay */
+        #form-container {
+            background: var(--ORDER-CLOSE-BUTTON-BACKGROUND, white);
+            justify-content: center;
+            align-items: stretch;
+        }
+
+        #user-form {
+            top: 0;
+            left: 0;
+            right: 0;
+            flex-flow: column;
+            flex: 0 0 100%;
+            align-items: stretch;
+            justify-content: flex-start;
+            padding: 10px;
+        }
+
+        #form-buttons {
+            flex: 0 0 80%;
+            justify-content: space-around;
+            padding: 5px;
+        }
+
+        .pick-container {
+            flex-flow: row;
+            justify-content: flex-start;
+        }
+
+        /* Cart Section */
+        #cart {
+            flex-direction: column;
+            overflow: hidden;
+            padding: 5px;
+            border: 1px solid black;
+        }
+
+        #cart-title {
+            font-size: 2em;
+            background-color: rgb(224, 224, 224);
+            padding: 0.1em;
+            width: 100%;
+        }
+
+        #cart-contents {
+            flex-direction: column;
+            align-items: stretch;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        #cart-contents-inner {
+            width: 100%;
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        #cart-total {
+            width: 100%;
+            padding: 5px;
+            /* display: flex; */
+        }
+
+        .order-total {
+            font-size: 1.5em;
+        }
+
+        #order-total-label {
+            flex-basis: 100px;
+            justify-content: flex-start;
+        }
+
+        #order-total-amount {
+            flex-grow: 1;
+            justify-content: flex-end;
+        }
+
+        #order-buts {
+            background-color: rgb(224, 224, 224);
+            width: 100%;
+            min-height: 20px;
+            padding: 5px;
+        }
+
+        /*### Adjustments for mobile screen ###*/
+        @media only screen and (max-width: 430px) {
+            .mobile {
+                display: none;
+            }
+
+            #rt-orderform-container {
+                width: 100%;
+                grid-template-columns: 1fr;
+                margin: 0;
+                padding: 0px;
+            }
+
+            #menu-items-container {
+                border: 0;
+                margin: 0;
+            }
+
+            #product-details {
+                max-width: 90%;
+            }
+
+            #mobile-spacer {
+                width:200px;
+                height:75px;
+            }
+
+            #cart {
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-template-rows: min-content min-content auto min-content min-content min-content;
+                position: fixed;
+                height: 95%;
+                bottom: 2.5%;
+                width: 95%;
+                left: 2.5%;
+                background-color: white;
+                transition: height 0.4s ease;
+            }
+
+            #cart.mini {
+                height: var(--MINIMIZED-CART, 20px);
+                bottom: 0px;
+            }
+
+            /* Hide cart until minimum size has been determined */
+            #cart.init {
+                visibility: hidden;
+            }
+
+            #cart-contents {
+                flex-direction: row;
+                align-self: end;
+                height: 100%;
+                overflow-y: auto;
+                overflow-x: hidden;
+            }
+
+            #cart-contents-inner {
+                justify-content: flex-end;
+            }
+        }
+    </style>
     <div id="rt-orderform-container">
         
         <div id="menu-items-container">
-            <div id="menu" style="display:none">
+            <div id="menu" style="display: none">
                 <slot name="menu-items"></slot>
             </div>
             
@@ -17,7 +314,7 @@
                     <div id="prod-add-but" class="button">Aanpassen</div>
                 </div>
             </dialog>
-            <div id="form-container" style="display:none">
+            <div id="form-container" style="display: none">
                 <form id="user-form">
                     
                     
