@@ -2,18 +2,6 @@
 
 
 <style>
-    :host {
-        /*
-        Define CSS variables here to over-ride form defaults, eg
-        
-        
-        --rt-orderform-DETAILS-BACKGROUND: cornflowerblue; 
-        */
-        --rt-orderform-DETAILS-BACKGROUND: cornflowerblue;
-        --rt-orderform-CART-WIDTH: 350px;
-        --rt-plusminus-MAX-COUNT: 5;
-    }
-
     rt-orderform {
         width: 100%;
     }
@@ -22,19 +10,19 @@
     <span id="imgpath">https://appeltaartimperium.nl/wp-content/themes/yootheme/cache/</span>
     <style id="rt-lineitem">
         rt-plusminus {
-            --OF-PM-POS: left;
+            --PM-POS: left;
         }
     </style>
     <style id="rt-itemline">
         rt-plusminus {
-            --rt-plusminus-MAX-COUNT: 7;
-            --OF-PM-POS: right;
+            --PM-MAX-COUNT: 7;
+            --PM-POS: right;
         }
     </style>
     <style id="rt-orderform">
         rt-orderform {
+            --OF-MIN-CART-WIDTH: 350px;
             --OF-DETAILS-BACKGROUND: green;
-            /* --OF-HIDE-UPDATE: 'true'; */
         }
     </style>
 </form-config>
@@ -128,7 +116,6 @@
     </rt-itemvariety>
 </rt-itemdata>
 
-
 <div id="user-details" slot="user-form">
     <style>
         #user-details {
@@ -192,7 +179,6 @@
             resize: none;
         }
 
-        /* For small screens convert rows of fields to columns to try and avoid width overflow */
         @media only screen and (max-width: 430px) {
             .flow-row {
                 display: flex;
