@@ -10,7 +10,11 @@ customElements.define(compName, class extends rtBC.RTBaseClass {
         });
         this.#_sR.append(this.$getTemplate());
         this.#_counter = this.#_sR.querySelector("rt-plusminus");
-        this.#_sR.querySelector("#delete").addEventListener("click", this.#deleteMe);
+        const delFunc = {
+            handleEvent: this.#deleteMe,
+            lineNode: this
+        };
+        this.#_sR.querySelector("#delete").addEventListener("click", delFunc);
         this.addEventListener("updatecount", this.#update);
     }
     connectedCallback() {
@@ -21,8 +25,8 @@ customElements.define(compName, class extends rtBC.RTBaseClass {
         }, 0);
     }
     #deleteMe() {
-        this.count = 0;
-        this.#update();
+        this.lineNode.count = 0;
+        this.lineNode.#update();
     }
     #render() {
         const unit = parseInt(this.$attr("unit"));
@@ -33,7 +37,6 @@ customElements.define(compName, class extends rtBC.RTBaseClass {
     }
     #update(e) {
         if (e instanceof Event) e.stopImmediatePropagation();
-        this.#render();
         this.$dispatch({
             name: "cartmod",
             detail: {
@@ -41,6 +44,7 @@ customElements.define(compName, class extends rtBC.RTBaseClass {
                 count: parseInt(this.count)
             }
         });
+        if (this.count > 0) this.#render(); else this.remove();
     }
     get count() {
         return this.#_counter.$attr("count");
