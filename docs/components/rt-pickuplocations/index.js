@@ -1,5 +1,5 @@
 const options = {
-    dependencies: [ "rt-datepicker" ]
+    dependancies: [ "rt-datepicker" ]
 };
 
 try {

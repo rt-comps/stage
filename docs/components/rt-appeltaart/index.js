@@ -1,5 +1,5 @@
 const options = {
-    dependencies: [ "rt-orderform", "rt-datepicker" ],
+    dependancies: [ "rt-orderform", "rt-datepicker" ],
     additionalModules: [ {
         label: "rtForm",
         file: "rt_form.mjs"

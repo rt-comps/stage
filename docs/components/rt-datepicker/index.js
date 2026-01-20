@@ -3,7 +3,7 @@ const compUrlArray = import.meta.url.split("/");
 const comp = compUrlArray[compUrlArray.length - 2];
 
 const options = {
-    dependencies: [ [ comp, "dp-date" ] ]
+    dependancies: [ [ comp, "dp-date" ] ]
 };
 
 try {

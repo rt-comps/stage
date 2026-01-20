@@ -45,9 +45,11 @@ customElements.define(compName, class extends rtBC.RTBaseClass {
     }
     connectedCallback() {
         if (typeof rtForm !== "undefined") rtForm.getStyle(this, rtForm.findNode(this));
-        this.$dispatch({
-            name: "formready"
-        });
+        setTimeout(() => {
+            this.$dispatch({
+                name: "formready"
+            });
+        }, 0);
     }
     #cartButtonsDisplay() {
         const buttons = new Map([ [ "further", this.#_sR.getElementById("further-but") ], [ "last", this.#_sR.getElementById("recover-but") ] ]);
@@ -247,7 +249,7 @@ customElements.define(compName, class extends rtBC.RTBaseClass {
             let imgNode = element.querySelector("img");
             if (imgNode) elementAttrs.bgimg = `${imgPath}/${imgNode.getAttribute("file")}`;
             return this.$createElement({
-                tag: "rt-menuitem",
+                tag: "of-menuitem",
                 innerHTML: `${element.querySelector("item-title").innerHTML}`,
                 attrs: elementAttrs
             });
@@ -308,6 +310,17 @@ customElements.define(compName, class extends rtBC.RTBaseClass {
             const htmlText = await response.text();
             const frag = document.createRange().createContextualFragment(htmlText);
             this.appendChild(frag);
+            const dependancies = [ ...new Set(Array.from(this.querySelectorAll("*")).map(el => {
+                const tagName = el.tagName.toLowerCase();
+                if (tagName.indexOf("rt-") === 0) return tagName;
+            }).filter(el => el).concat([ "rt-lineitem" ])) ];
+            await Promise.all(dependancies.map(async depComp => {
+                try {
+                    await import(`${basePath}/components/${depComp}/index.js`);
+                } catch (e) {
+                    throw `Component "${compName}" could not load dependency "${depComp}" so stopping!!`;
+                }
+            }));
             this.#orderInitialise();
         } catch (e) {
             console.error(e);
@@ -320,6 +333,9 @@ customElements.define(compName, class extends rtBC.RTBaseClass {
               case "invalid":
                 output = '<h1 style="color: red;">Datafile URL is not valid</h1>';
                 break;
+
+              default:
+                output = "";
             }
             const frag = document.createRange().createContextualFragment(output);
             this.#_sR.querySelector("#menu-items-container").appendChild(frag);

@@ -27,7 +27,7 @@ customElements.define(compName, class extends rtBC.RTBaseClass {
     connectedCallback() {
         if (typeof rtForm !== "undefined") rtForm.getStyle(this, rtForm.findNode(this));
         setTimeout(() => {
-            this.#_maxCount = parseInt(getComputedStyle(this.#_sR.querySelector("#container")).getPropertyValue("--MAX-COUNT"));
+            this.#_maxCount = parseInt(getComputedStyle(this.#_sR.querySelector("#container")).getPropertyValue("--PM-MAX-COUNT"));
             const pos = getComputedStyle(this).getPropertyValue("--PM-POS");
             if (pos.toLowerCase() === "left") this.#_sR.querySelector("div").insertAdjacentElement("afterbegin", this.#_sR.querySelector("#count"));
             if (pos.toLowerCase() === "right") this.#_sR.querySelector("div").insertAdjacentElement("beforeend", this.#_sR.querySelector("#count"));

@@ -1,7 +1,7 @@
 <template id="RT-ORDERFORM">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
     <style>
-        /* === Element Defaults === */
+        
 
         :host {
             
@@ -21,9 +21,9 @@
             font-size: var(--rt-orderform-FONT-SIZE, var(--FONT-SIZE-DEFAULT));
             line-height: var(--rt-orderform-LINE-HEIGHT, var(--LINE-HEIGHT-DEFAULT));
 
-            --CART-MIN-SIZE: minmax(var(--OF-MIN-CART-WIDTH, 0px), var(--CART-MIN-SIZE-DEFAULT));
+            --CART-MIN-SIZE: minmax(var(--rt-orderform-CART-WIDTH, 0px), var(--CART-MIN-SIZE-DEFAULT));
 
-            /* Turn off selection/highlighting of text */
+            
             
             -webkit-touch-callout: none;
             
@@ -32,9 +32,9 @@
             -khtml-user-select: none;
             
             -moz-user-select: none;
-            /* Internet Explorer/Edge */
+            
             -ms-user-select: none;
-            /* Non-prefixed version, currently supported by Chromium(-based) and Firefox */
+            
             user-select: none;
         }
 
@@ -235,7 +235,7 @@
             padding: 5px;
         }
 
-        /*### Adjustments for mobile screen ###*/
+        
         @media only screen and (max-width: 430px) {
             .mobile {
                 display: none;
@@ -316,7 +316,6 @@
             </dialog>
             <div id="form-container" style="display: none">
                 <form id="user-form">
-                    
                     
                 </form>
                 <div id="form-buttons">

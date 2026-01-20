@@ -8,9 +8,9 @@ async function init(compURL, options = {}) {
             throw e;
         }
     }
-    console.time(`load Modules for ${compName}`);
-    if (typeof options.dependencies !== "undefined") {
-        await Promise.all(options.dependencies.map(async depComp => {
+    if (typeof options.dependancies !== "undefined") {
+        console.time(`load Modules for ${compName}`);
+        await Promise.all(options.dependancies.map(async depComp => {
             try {
                 await import(`${basePath}/components/${depComp.constructor === Array ? depComp.join("/") : depComp}/index.js`);
             } catch (e) {

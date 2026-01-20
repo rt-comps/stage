@@ -8,7 +8,7 @@ async function initialise(comp, options = {}) {
 }
 
 const options = {
-    dependencies: [ "rt-orderform", "rt-datepicker" ],
+    dependancies: [ "rt-orderform", "rt-datepicker" ],
     additionalModules: [ {
         label: "rtform",
         file: "rt_form.mjs"

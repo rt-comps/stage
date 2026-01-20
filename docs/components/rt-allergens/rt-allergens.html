@@ -1,0 +1,34 @@
+<template id="RT-ALLERGENS">
+    <style>
+        div {
+            display: flex;
+            flex-direction: column;
+        }
+
+        ::slotted(al-allergen) {
+            display: flex;
+            object-fit: contain;
+            width: 50px;
+            height: 50px;
+            background-color: white;
+            border-radius: 10px;
+        }
+
+        #contents {
+            margin-bottom: 10px;
+        }
+
+        #allergens {
+            flex-flow: row wrap;
+            justify-content: space-evenly;
+        }
+    </style>
+    <div id="contents">
+        <div id="title">
+            <slot name="title"></slot>
+        </div>
+        <div id="allergens">
+            <slot></slot>
+        </div>
+    </div>
+</template>
