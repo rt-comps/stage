@@ -1,15 +1,1 @@
-const options = {
-    dependancies: [ "rt-orderform", "rt-datepicker" ],
-    additionalModules: [ {
-        label: "rtForm",
-        file: "rt_form.mjs"
-    } ]
-};
-
-try {
-    if (typeof rtlib === "undefined") window.rtlib = await import(`${import.meta.url.split("/").slice(0, -3).join("/")}/modules/rt.mjs`);
-    rtlib.init(import.meta.url, options);
-} catch (e) {
-    console.error(e);
-    throw e;
-}
+const r={dependancies:["rt-orderform","rt-datepicker"],additionalModules:[{label:"rtForm",file:"rt_form.mjs"}]};try{"undefined"==typeof rtlib&&(window.rtlib=await import(`${import.meta.url.split("/").slice(0,-3).join("/")}/modules/rt.mjs`)),rtlib.init(import.meta.url,r)}catch(r){throw console.error(r),r}

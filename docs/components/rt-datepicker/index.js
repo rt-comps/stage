@@ -1,15 +1,1 @@
-const compUrlArray = import.meta.url.split("/");
-
-const comp = compUrlArray[compUrlArray.length - 2];
-
-const options = {
-    dependancies: [ [ comp, "dp-date" ] ]
-};
-
-try {
-    if (typeof rtlib === "undefined") window.rtlib = await import(`${compUrlArray.slice(0, -3).join("/")}/modules/rt.mjs`);
-    rtlib.init(import.meta.url, options);
-} catch (e) {
-    console.error(e);
-    throw e;
-}
+const t=import.meta.url.split("/"),i={dependancies:[[t[t.length-2],"dp-date"]]};try{"undefined"==typeof rtlib&&(window.rtlib=await import(`${t.slice(0,-3).join("/")}/modules/rt.mjs`)),rtlib.init(import.meta.url,i)}catch(t){throw console.error(t),t}

@@ -1,18 +1,1 @@
-async function initialise(comp, options = {}) {
-    try {
-        if (typeof rtlib === "undefined") window.rtlib = await import(`${comp.split("/").slice(0, -3).join("/")}/modules/rt.mjs`);
-        rtlib.init(comp, options);
-    } catch (e) {
-        console.warn(e);
-    }
-}
-
-const options = {
-    dependancies: [ "rt-orderform", "rt-datepicker" ],
-    additionalModules: [ {
-        label: "rtform",
-        file: "rt_form.mjs"
-    } ]
-};
-
-initialise(import.meta.url, options);
+!async function(t,i={}){try{"undefined"==typeof rtlib&&(window.rtlib=await import(`${t.split("/").slice(0,-3).join("/")}/modules/rt.mjs`)),rtlib.init(t,i)}catch(t){console.warn(t)}}(import.meta.url,{dependancies:["rt-orderform","rt-datepicker"],additionalModules:[{label:"rtform",file:"rt_form.mjs"}]});
